@@ -2,8 +2,8 @@
 RideShare is a ride-sharing app that connects people heading to the same destination, allowing them to share rides and save money, reduce traffic, and protect the environment.
 
 - [Api Documentation](https://documenter.getpostman.com/view/32434659/2s9YymFjCa#e3c94f2d-c0eb-424a-982c-fc94fef0d286)
-- [Geoapify Api Documentation](https://documenter.getpostman.com/view/32434659/2s9YymFjCa#e3c94f2d-c0eb-424a-982c-fc94fef0d286](https://www.geoapify.com/get-started-with-maps-api)
-- [MapTiler Api Documentation](https://documenter.getpostman.com/view/32434659/2s9YymFjCa#e3c94f2d-c0eb-424a-982c-fc94fef0d286](https://docs.maptiler.com/sdk-js/)
+- [Geoapify Api Documentation](https://www.geoapify.com/get-started-with-maps-api)
+- [MapTiler Api Documentation](https://docs.maptiler.com/sdk-js/)
 
 
 ### List of features:
