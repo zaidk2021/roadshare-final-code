@@ -10,7 +10,8 @@ import userRoute from "./routes/user.routes.js";
 import rideRoute from "./routes/ride.routes.js";
 
 const app = express();
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
+
 
 dotenv.config();
 
@@ -33,7 +34,8 @@ const connectDB = () => {
 // Removed CORS middleware
 // Configure CORS
 app.use(cors({
-  origin: 'http://localhost:5173', // Allow your client application's origin
+  origin:'https://roadshare-final-code-oz2v-git-main-kzaidnbagmailcoms-projects.vercel.app/',
+ // origin: 'http://localhost:5173', // Allow your client application's origin
   credentials: true, // If your front-end needs to send cookies to the back-end
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],//allow methods why not
   allowedHeaders: ['Content-Type', 'Authorization']
