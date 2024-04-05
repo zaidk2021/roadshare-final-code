@@ -33,11 +33,17 @@ const connectDB = () => {
 };
 // Removed CORS middleware
 // Configure CORS
+//app.use(cors({
+  //origin:'https://roadshare-final-code-oz2v-git-main-kzaidnbagmailcoms-projects.vercel.app/',
+  //origin: 'http://localhost:5173', // Allow your client application's origin
+  //credentials: true, // If your front-end needs to send cookies to the back-end
+  //methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],//allow methods why not
+  //allowedHeaders: ['Content-Type', 'Authorization']
+//}));
 app.use(cors({
-  origin:'https://roadshare-final-code-oz2v-git-main-kzaidnbagmailcoms-projects.vercel.app/',
- // origin: 'http://localhost:5173', // Allow your client application's origin
-  credentials: true, // If your front-end needs to send cookies to the back-end
-  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],//allow methods why not
+  origin: 'https://roadshare-final-code-oz2v-git-main-kzaidnbagmailcoms-projects.vercel.app', // Removed the trailing slash
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
