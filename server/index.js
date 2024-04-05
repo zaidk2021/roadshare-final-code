@@ -43,8 +43,8 @@ const connectDB = () => {
 app.use(cors({
   origin: 'https://roadshare-final-code-oz2v-git-main-kzaidnbagmailcoms-projects.vercel.app', // Removed the trailing slash
   credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+ // methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  //allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 app.use(cookieParser());
