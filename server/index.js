@@ -41,7 +41,7 @@ const connectDB = () => {
   //allowedHeaders: ['Content-Type', 'Authorization']
 //}));
 app.use(cors({
-  origin: 'https://roadshare-final-code-oz2v-git-main-kzaidnbagmailcoms-projects.vercel.app', // Removed the trailing slash
+  origin: 'https://roadshare-final-code-oz2v.vercel.app', // Removed the trailing slash
   credentials: true,
  // methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   //allowedHeaders: ['Content-Type', 'Authorization']
