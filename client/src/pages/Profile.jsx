@@ -34,7 +34,7 @@ const Profile = () => {
   })
   const updateRatingInBackend = async (userId, newRating) => {
     // This URL should point to your backend endpoint for updating ratings
-    const url = `http://localhost:8080/api/users/rate/${userId}`;
+    const url = `https://roadshare-final-code.onrender.com/api/users/rate/${userId}`;
     try {
       await axios.post(url, { rating: newRating }, { withCredentials: true });
       console.log("Rating updated successfully");
