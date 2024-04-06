@@ -52,7 +52,8 @@ const PublishCard = () => {
       toast("The ride has been Created")
       form.reset()
       // Navigate to a new URL
-window.location.href = "http://localhost:5173";
+//window.location.href = "http://localhost:5173";
+window.location.href="https://roadshare-final-code-oz2v.vercel.app";
 
     } catch (error) {
       console.error('POST request failed:', error);
