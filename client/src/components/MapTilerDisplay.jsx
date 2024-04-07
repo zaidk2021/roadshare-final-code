@@ -1,18 +1,26 @@
-// components/MapTilerDisplay.jsx
-import { useEffect} from 'react';
+import { useEffect } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
 const geocodeLocation = async (locationName) => {
     const geoapifyApiKey = '1636de9510f44457802f46fd1284a428';
-
-  const url = `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(locationName)}&apiKey=${geoapifyApiKey}`;
-  const response = await fetch(url);
-  if (!response.ok) throw new Error('Geocoding failed');
-  const data = await response.json();
-  if (data.features.length === 0) throw new Error('Location not found');
-  return data.features[0].geometry.coordinates;
+    const url = `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(locationName)}&apiKey=${geoapifyApiKey}`;
+    const response = await fetch(url);
+    if (!response.ok) throw new Error('Geocoding failed');
+    const data = await response.json();
+    if (data.features.length === 0) throw new Error('Location not found');
+    return data.features[0].geometry.coordinates;
 };
+
+// Define your custom icon
+const customIcon = new L.Icon({
+  iconUrl: '/images/marker-icon.png',
+  shadowUrl: '/images/marker-shadow.png',
+  iconSize: [25, 41], // Size of the icon
+  iconAnchor: [12, 41], // Point of the icon which will correspond to marker's location
+  popupAnchor: [1, -34], // Point from which the popup should open relative to the iconAnchor
+  shadowSize: [41, 41] // Size of the shadow
+});
 
 const MapTilerDisplay = ({ from, to }) => {
   useEffect(() => {
@@ -30,8 +38,9 @@ const MapTilerDisplay = ({ from, to }) => {
         const [fromLon, fromLat] = await geocodeLocation(from);
         const [toLon, toLat] = await geocodeLocation(to);
 
-        L.marker([fromLat, fromLon]).addTo(map).bindPopup(from);
-        L.marker([toLat, toLon]).addTo(map).bindPopup(to);
+        // Use the custom icon for markers
+        L.marker([fromLat, fromLon], { icon: customIcon }).addTo(map).bindPopup(from);
+        L.marker([toLat, toLon], { icon: customIcon }).addTo(map).bindPopup(to);
 
         // Optionally draw a line between the points
         const latlngs = [
