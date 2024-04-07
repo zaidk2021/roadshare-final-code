@@ -10,7 +10,7 @@ import { Form, FormControl, FormField, FormItem } from "./ui/form"
 import { CalendarIcon, MapPin, Minus, Plus, User } from "lucide-react"
 import { Input } from "./ui/input"
 import { useSearchParams } from "react-router-dom"
-import { zonedTimeToUtc } from "date-fns-tz";
+
 
 
 
@@ -27,26 +27,30 @@ const Search = () => {
   const form = useForm({
     resolver: zodResolver(searchSchema),
     defaultValues: {
-      defaultValues: {
-        from: searchParams.get("from") || "",
-        to: searchParams.get("to") || "",
-        seat: parseInt(searchParams.get("seat"), 10) || 1,
-        // Convert searchParams date to UTC
-        date: searchParams.get("date") ? zonedTimeToUtc(new Date(searchParams.get("date")), Intl.DateTimeFormat().resolvedOptions().timeZone) : null,
-      },
-      
+      from: searchParams.get("from") || "",
+      to: searchParams.get("to") || "",
+      seat: parseInt(searchParams.get("seat"), 10) || 1,
+      date: searchParams.get("date") ? new Date(new Date(searchParams.get("date")).getTime() + new Date(searchParams.get("date")).getTimezoneOffset() * 60000).toISOString().split('T')[0] : null,
     },
   });
+  
 
   const onSubmit = async (data) => {
     if (data.date) {
-      const utcDate = zonedTimeToUtc(data.date, Intl.DateTimeFormat().resolvedOptions().timeZone);
-      data.date = format(utcDate, 'yyyy-MM-dd');
-  }
+      // Create a Date object from the form data
+      const date = new Date(data.date);
+  
+      // Convert to UTC string and then to an ISO string without time information
+      const utcDate = new Date(date.getTime() + date.getTimezoneOffset() * 60000).toISOString().split('T')[0];
+  
+      data.date = utcDate;
+    }
+  
     await form.handleSubmit((formData) => {
       setSearchParams(formData, {replace: true});
     })(data);
   };
+  
 
   return (
     <Form {...form}>
