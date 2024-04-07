@@ -4,7 +4,7 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
 const geocodeLocation = async (locationName) => {
-    const geoapifyApiKey = '40f4e9c2b7c244b1a952de52ae481ec1';
+    const geoapifyApiKey = '6fb625939a954857a3bf1bc52e043c10';
 
   const url = `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(locationName)}&apiKey=${geoapifyApiKey}`;
   const response = await fetch(url);
@@ -21,7 +21,7 @@ const MapTilerDisplay = ({ from, to }) => {
       zoom: 5,
     });
     
-    L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=V8izIOAgRgaHX6bmmpbi', {
+    L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=oELt362boAVL37TwNG4W', {
       attribution: '&copy; <a href="https://www.maptiler.com/">MapTiler</a> contributors',
     }).addTo(map);
 
