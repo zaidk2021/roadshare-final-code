@@ -45,7 +45,7 @@ const SearchPage = () => {
     };
 
     fetchRidesAndLocations();
-  }, [location.search]); // Re-run when search parameters change
+  }, [date, location.search, queryParams.from, queryParams.to, seat]); // Re-run when search parameters change
 
   return (
     <main>
