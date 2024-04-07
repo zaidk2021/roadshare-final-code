@@ -20,7 +20,7 @@ const SearchPage = () => {
   useEffect(() => {
     const getUniqueLocations = async () => {
       try {
-        const { data } = await axios.get("http://localhost:8080/api/rides/getUniqueLocations");
+        const { data } = await axios.get("https://roadshare-final-code.onrender.com/api/rides/getUniqueLocations");
         
         const fromMatch = data.find(item => item.includes(from));
         const toMatch = data.find(item => item.includes(to));
