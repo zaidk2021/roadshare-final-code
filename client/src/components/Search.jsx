@@ -2,7 +2,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { cn } from "@/lib/utils"
 import { z } from "zod"
-//import { format } from "date-fns"
+import { format } from "date-fns"
 import { Button } from "./ui/button"
 import { Calendar } from "./ui/calendar"
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
@@ -10,7 +10,7 @@ import { Form, FormControl, FormField, FormItem } from "./ui/form"
 import { CalendarIcon, MapPin, Minus, Plus, User } from "lucide-react"
 import { Input } from "./ui/input"
 import { useSearchParams } from "react-router-dom"
-import { zonedTimeToUtc, format } from 'date-fns-tz';
+import { zonedTimeToUtc } from 'date-fns-tz';
 
 
 const searchSchema = z.object({
