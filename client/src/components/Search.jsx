@@ -10,7 +10,7 @@ import { Form, FormControl, FormField, FormItem } from "./ui/form"
 import { CalendarIcon, MapPin, Minus, Plus, User } from "lucide-react"
 import { Input } from "./ui/input"
 import { useSearchParams } from "react-router-dom"
-import { zonedTimeToUtc } from 'date-fns-tz';
+import { zonedTimeToUtc } from "date-fns-tz";
 
 
 
