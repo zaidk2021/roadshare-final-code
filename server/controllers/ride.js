@@ -102,7 +102,7 @@ export const updateRide = async(req, res, next) => {
 
 export const deleteRide = async(req, res, next) => {
   try{
-    await Ride.findByIdAndDelete(req.params.id);
+    await Ride.ByIdAndDelete(req.params.id);
     await User.findByIdAndUpdate( req.user.id, { $pull: { ridesCreated: req.params.id } })
     res.status(200).send("ride has been deleted");
   }catch(err){

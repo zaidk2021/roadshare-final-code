@@ -2,7 +2,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { cn } from "@/lib/utils"
 import { z } from "zod"
-import { format } from "date-fns"
+//import { format } from "date-fns"
 import { Button } from "./ui/button"
 import { Calendar } from "./ui/calendar"
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
@@ -10,6 +10,7 @@ import { Form, FormControl, FormField, FormItem } from "./ui/form"
 import { CalendarIcon, MapPin, Minus, Plus, User } from "lucide-react"
 import { Input } from "./ui/input"
 import { useSearchParams } from "react-router-dom"
+import { zonedTimeToUtc, format } from 'date-fns-tz';
 
 
 const searchSchema = z.object({
@@ -25,14 +26,22 @@ const Search = () => {
   const form = useForm({
     resolver: zodResolver(searchSchema),
     defaultValues: {
-      from: searchParams.get("from") || "", // Ensure default value is an empty string if not found
-      to: searchParams.get("to") || "", // Ensure default value is an empty string if not found
-      seat: parseInt(searchParams.get("seat")) >= 1 && parseInt(searchParams.get("seat")) <= 10 ? parseInt(searchParams.get("seat")) : 1, // Ensure seat is between 1 and 10
-      date: searchParams.get("date") ? new Date(searchParams.get("date")) : null // Convert date string to Date object or null if not found
+      defaultValues: {
+        from: searchParams.get("from") || "",
+        to: searchParams.get("to") || "",
+        seat: parseInt(searchParams.get("seat"), 10) || 1,
+        // Convert searchParams date to UTC
+        date: searchParams.get("date") ? zonedTimeToUtc(new Date(searchParams.get("date")), Intl.DateTimeFormat().resolvedOptions().timeZone) : null,
+      },
+      
     },
   });
 
   const onSubmit = async (data) => {
+    if (data.date) {
+      const utcDate = zonedTimeToUtc(data.date, Intl.DateTimeFormat().resolvedOptions().timeZone);
+      data.date = format(utcDate, 'yyyy-MM-dd');
+  }
     await form.handleSubmit((formData) => {
       setSearchParams(formData, {replace: true});
     })(data);

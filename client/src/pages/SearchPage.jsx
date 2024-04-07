@@ -46,7 +46,7 @@ const SearchPage = () => {
 
     fetchRidesAndLocations();
   }, [date, location.search, queryParams.from, queryParams.to, seat]); // Re-run when search parameters change
-
+ 
   return (
     <main>
       <div id="map" style={{ width: '50%', margin: '0 auto' }}>
