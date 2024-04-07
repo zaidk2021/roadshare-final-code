@@ -4,8 +4,8 @@ import axios from 'axios';
 import MapTilerDisplay from '@/components/MapTilerDisplay';
 import RideCard from '@/components/RideCard';
 import Search from '@/components/Search';
-import Sidebar from '@/components/Sidebar';
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+//import Sidebar from '@/components/Sidebar';
+import { Dialog,DialogTrigger } from '@/components/ui/dialog';
 import { Skeleton } from '@/components/ui/skeleton';
 import { MoveRight, SlidersHorizontal } from 'lucide-react';
 
@@ -61,15 +61,11 @@ const SearchPage = () => {
           <DialogTrigger className="md:hidden border border-lg p-2 bg-background absolute right-0">
             <SlidersHorizontal />
           </DialogTrigger>
-          <DialogContent>
-            <Sidebar />
-          </DialogContent>
+          
         </Dialog>
       </div>
       <div className="container p-0 max-w-screen-xl grid md:grid-cols-5">
-        <div className="hidden md:block">
-          <Sidebar /> {/* Presumed intention as it wasn't specified where Sidebar should be */}
-        </div>
+      
         <div className="col-span-3 py-6 md:col-span-4 lg:border-l">
           <div className="container">
             {loading ? (
