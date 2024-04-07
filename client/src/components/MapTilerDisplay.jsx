@@ -4,7 +4,7 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
 const geocodeLocation = async (locationName) => {
-    const geoapifyApiKey = '6fb625939a954857a3bf1bc52e043c10';
+    const geoapifyApiKey = '1636de9510f44457802f46fd1284a428';
 
   const url = `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(locationName)}&apiKey=${geoapifyApiKey}`;
   const response = await fetch(url);
