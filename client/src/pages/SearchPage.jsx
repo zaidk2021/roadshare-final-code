@@ -52,9 +52,6 @@ const SearchPage = () => {
       <div id="map" style={{ width: '50%', margin: '0 auto' }}>
         <MapTilerDisplay from={from} to={to} />
       </div>
-      <div id="text" style={{ fontSize: '12px' }}>
-        Hard Reload after search (Ctrl+Shift+R) required due to free API being used
-      </div>
       <div className="z-10 flex justify-center items-center border-b bg-background p-8">
         <Search />
         <Dialog>
