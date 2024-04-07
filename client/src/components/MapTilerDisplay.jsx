@@ -14,7 +14,7 @@ const geocodeLocation = async (locationName) => {
 
 // Define your custom icon
 const customIcon = new L.Icon({
-  iconUrl: '/images/marker-icon.png',
+  iconUrl: '/images/marker-icon-blue.png',
   shadowUrl: '/images/marker-shadow.png',
   iconSize: [25, 41], // Size of the icon
   iconAnchor: [12, 41], // Point of the icon which will correspond to marker's location
